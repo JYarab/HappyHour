@@ -81,8 +81,7 @@ h1{
 .search-container{
 	width:100%;
 }
-.col1{
-	position:absolute;
+.col{
 	margin-top:15%;
 	margin-left:50%;
 	transform:translate(-50%,-50%);
@@ -100,6 +99,8 @@ h1{
 	float:left;
 	transition:0.4s;
 	line-height: 25px;
+	width:100%;
+	text-align: center;
 }
 
 .searchbtn {

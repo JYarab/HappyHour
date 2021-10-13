@@ -26,39 +26,39 @@
 </head>
 <body>
 <body>
-
-		<div class="container">
-<!-- 		<img alt="bg-image" src="/image/pantry.jpg"> -->
+	<div class="container-fluid">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Home </a>
-				<div class="collapse navbar-collapse" id="navbarNav">|
+				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#"> My Bar</a></li>
-							
-					</ul>|
-										<ul class="navbar-nav">
+							aria-current="page" href="#"> My Bar</a>
+						</li>		
+					</ul>
+					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#"> Favorities</a></li>
-							
-					</ul> |
-										<ul class="navbar-nav">
+							aria-current="page" href="#"> Favorities</a>
+						</li>	
+					</ul>
+					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#"> Browse Drinks</a></li>	
+							aria-current="page" href="#"> Browse Drinks</a>
+						</li>	
 					</ul>
 				</div>
 				<a class="navbar-brand" href="/logout"> Logout </a>
 			</div>
 		</nav>
-<h1>What's on Hand</h1>
-	<div class="row">
-		<div class="col1">
-			<input class="search-text" type="text" name="" >
-			<a class="search-btn" href="#"></a>
-		</div>
-		<div class="col2">
-			<a href="#"><i class="fas fa-search"></i></a>	
+	<div class="search-container">	
+	<h1>What's on Hand</h1>
+		<div class="row">
+			<div class="col">
+				<input class="search-text" type="text" name="" value="enter an ingredient..." style="">
+			</div>
+			<div class="col">
+				<a href="/pantry/search/"><i class="fas fa-search"></i></a>	
+			</div>
 		</div>
 	</div>
 </div>
