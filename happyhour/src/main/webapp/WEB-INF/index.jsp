@@ -45,23 +45,22 @@
 					</ul> |
 										<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#"> Browse Drinks</a></li>
-							
+							aria-current="page" href="#"> Browse Drinks</a></li>	
 					</ul>
 				</div>
 				<a class="navbar-brand" href="/logout"> Logout </a>
 			</div>
 		</nav>
+<h1>What's on Hand</h1>
+	<div class="row">
+		<div class="col1">
+			<input class="search-text" type="text" name="" >
+			<a class="search-btn" href="#"></a>
+		</div>
+		<div class="col2">
+			<a href="#"><i class="fas fa-search"></i></a>	
+		</div>
 	</div>
-	
-	<h1>What's on Hand</h1>
-	<div class="search-box">
-		<input class="search-text" type="text" name="" >
-		<a class="seacrh-btn" href="#"></a>
-
-	</div>
-	<div class="searchbtn">
-		<a href="#"><i class="fas fa-search"></i></a>	
-	</div>
+</div>
 </body>
 </html>

@@ -2,9 +2,13 @@
 body{
     font-family: 'poppins',sans-serif;
 /*     background-color: #495057; */
-	background:url("/image/pantry3.jpg") no-repeat ;
+	background:url("/image/pantry.jpg") no-repeat center center fixed;
 	background-size:cover;
 	
+}
+
+.search-container {
+	display:inline-block;
 }
 
 .content, .content-reg {
@@ -73,7 +77,11 @@ h1{
 	top:10%;
 	color:#fff;
 }
-.search-box{
+
+.search-container{
+	width:100%;
+}
+.col1{
 	position:absolute;
 	margin-top:15%;
 	margin-left:50%;
@@ -82,6 +90,7 @@ h1{
 	height:40px;
 	border-radius:40px;
 	padding:5px;
+	display:inline-block;
 }
 .search-text{
 	border:none;
@@ -91,6 +100,9 @@ h1{
 	float:left;
 	transition:0.4s;
 	line-height: 25px;
+}
+
+.searchbtn {
 }
 .fas{
 	color:black;
