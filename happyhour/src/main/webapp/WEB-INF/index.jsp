@@ -28,6 +28,7 @@
 <body>
 
 		<div class="container">
+<!-- 		<img alt="bg-image" src="/image/pantry.jpg"> -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Home </a>
@@ -57,8 +58,7 @@
 	<div class="search-box">
 		<input class="search-text" type="text" name="" >
 		<a class="seacrh-btn" href="#"></a>
-<!-- 		<a class="btn" href="#"><img alt="img" src="/image/search.png" -->
-<!--          width=150" height="70"></a> -->
+
 	</div>
 	<div class="searchbtn">
 		<a href="#"><i class="fas fa-search"></i></a>	
