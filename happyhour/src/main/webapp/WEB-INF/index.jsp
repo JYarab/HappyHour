@@ -50,14 +50,11 @@
 				<a class="navbar-brand" href="/logout"> Logout </a>
 			</div>
 		</nav>
-	<div class="search-container">	
+	<div class="search-container">
 	<h1>What's on Hand</h1>
 		<div class="row">
 			<div class="col">
 				<input class="search-text" type="text" name="" value="enter an ingredient..." style="">
-			</div>
-			<div class="col">
-				<a href="/pantry/search/"><i class="fas fa-search"></i></a>	
 			</div>
 		</div>
 	</div>
