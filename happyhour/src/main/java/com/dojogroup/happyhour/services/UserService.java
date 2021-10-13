@@ -45,7 +45,6 @@ public class UserService {
         } else {
             // if the passwords match, return true, else, return false
             if(BCrypt.checkpw(password, user.getPassword())) {
-            	System.out.println("got this far");
                 return true;
             } else {
                 return false;
