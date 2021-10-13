@@ -73,16 +73,15 @@ nav{
 }
 h1{
 	text-align:center;
-/* 	margin-left:50px; */
-	top:10%;
+	margin-top:10%;
 	color:#fff;
 }
 
 .search-container{
 	width:100%;
 }
-.col{
-	margin-top:15%;
+.row{
+	margin-top:10%;
 	margin-left:50%;
 	transform:translate(-50%,-50%);
 	background:#2f3640;

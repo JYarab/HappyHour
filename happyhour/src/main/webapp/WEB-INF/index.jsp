@@ -53,9 +53,7 @@
 	<div class="search-container">
 	<h1>What's on Hand</h1>
 		<div class="row">
-			<div class="col">
-				<input class="search-text" type="text" name="" value="enter an ingredient..." style="">
-			</div>
+			<input class="search-text" type="text" name="" value="enter an ingredient..." style="">
 		</div>
 	</div>
 </div>
