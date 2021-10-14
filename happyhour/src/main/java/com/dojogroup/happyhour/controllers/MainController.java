@@ -24,11 +24,11 @@ public class MainController {
 	@Autowired UserValidator userValid;
 	@Autowired UserService userService;
 	
-	//REDIRECT TO LOGIN
-	@RequestMapping("/")
-	public String redirLogin() {
-		return "redirect:/login";
-	}
+//	//REDIRECT TO LOGIN
+//	@RequestMapping("/")
+//	public String redirLogin() {
+//		return "redirect:/login";
+//	}
 	
 	//VIEW LOGIN FORM / PAGE
 	@RequestMapping("/login")
@@ -75,10 +75,10 @@ public class MainController {
     	}
     }
 	
-	//HAPPY HOUR HOME PAGE
-	@GetMapping("/index")
-    public String index(Model model, HttpSession session) {
-		return "index.jsp";
-    }
+//	//HAPPY HOUR HOME PAGE
+//	@GetMapping("/index")
+//    public String index(Model model, HttpSession session) {
+//		return "index.jsp";
+//    }
 	
 }

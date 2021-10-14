@@ -25,10 +25,9 @@ import java.util.List;
 
 @Entity
 @Table(name="drinks")
-
 public class HappyHour {
 	
-	
+	@Id
 	private Long id;
 
 
@@ -100,57 +99,57 @@ public class HappyHour {
 
 
 
-	@ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name="user_id")
-		private User user;
-		
-		@ManyToMany(fetch = FetchType.EAGER)
-		@JoinTable(
-				name = "favorites",
-				joinColumns = @JoinColumn(name = "drink_id"),
-				inverseJoinColumns = @JoinColumn(name = "user_id")
+//	@ManyToOne(fetch = FetchType.LAZY)
+//		@JoinColumn(name="user_id")
+//		private User user;
+//		
+//		@ManyToMany(fetch = FetchType.EAGER)
+//		@JoinTable(
+//				name = "favorites",
+//				joinColumns = @JoinColumn(name = "drink_id"),
+//				inverseJoinColumns = @JoinColumn(name = "user_id")
+//				
+//
+//				name = "reviews",
+//				joinColumns = @JoinColumn(name = "review_id"),
+//				inverseJoinColumns = @JoinColumn(name = "user_id")
+//				
+//				)
+
+
+
 				
-
-				name = "reviews",
-				joinColumns = @JoinColumn(name = "review_id"),
-				inverseJoinColumns = @JoinColumn(name = "user_id")
-				
-				)
-
-
-
-				
-		private List<User> favorites;
+//		private List<User> favorites;
+//		
+//
+//		public List<User> getFavorites() {
+//				return favorites;
+//		}
+//		
+//		public void setFavorites(List<User> favorites) {
+//			this.favorites = favorites;
+//		}
 		
 
-		public List<User> getFavorites() {
-				return favorites;
-		}
-		
-		public void setFavorites(List<User> favorites) {
-			this.favorites = favorites;
-		}
-		
+//		private List<User> reviews;
+//		
+//
+//		public List<User> getreviews() {
+//				return reviews;
+//		}
+//		
+//		public void setReviews(List<User> reviews) {
+//			this.reviews = reviews;
+//		}
+//		
 
-		private List<User> reviews;
-		
-
-		public List<User> getreviews() {
-				return reviews;
-		}
-		
-		public void setReviews(List<User> reviews) {
-			this.reviews = reviews;
-		}
-		
-
-		public User getUser() {
-			return user;
-		}
-		
-		public void setUser(User User) {
-			this.user = User;
-		}
+//		public User getUser() {
+//			return user;
+//		}
+//		
+//		public void setUser(User User) {
+//			this.user = User;
+//		}
 
 
 
