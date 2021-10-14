@@ -29,7 +29,7 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#"> My Bar</a>
+							aria-current="page" href="/happyhour/pantry/${loggedUser.id}"> My Bar</a>
 						</li>		
 					</ul>
 					<ul class="navbar-nav">
