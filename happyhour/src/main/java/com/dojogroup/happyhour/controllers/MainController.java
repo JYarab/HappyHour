@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,11 +25,11 @@ public class MainController {
 	@Autowired UserValidator userValid;
 	@Autowired UserService userService;
 	
-//	//REDIRECT TO LOGIN
-//	@RequestMapping("/")
-//	public String redirLogin() {
-//		return "redirect:/login";
-//	}
+	//DASHBOARD
+	@RequestMapping("/")
+	public String redirHome() {
+		return "redirect:/happyhour";
+	}
 	
 	//VIEW LOGIN FORM / PAGE
 	@RequestMapping("/login")
@@ -42,7 +43,7 @@ public class MainController {
     	if(userService.authenticateUser(email, password)) {
     		User loggedUser = userService.findByEmail(email);
     		session.setAttribute("loggedUser", loggedUser.getId());
-    		return "redirect:/dashboard/page1";
+    		return "redirect:/happyhour";
     	} else {
     		errors.addFlashAttribute("error", "Credentials are invalid.");
     		return "redirect:/login";
@@ -75,10 +76,17 @@ public class MainController {
     	}
     }
 	
-//	//HAPPY HOUR HOME PAGE
-//	@GetMapping("/index")
-//    public String index(Model model, HttpSession session) {
-//		return "index.jsp";
-//    }
+	//HAPPY HOUR HOME PAGE
+	@GetMapping("/happyhour")
+    public String index(Model model, HttpSession session) {
+		if(session.getAttribute("loggedUser") == null) {
+			return "index.jsp";
+		} else {
+		Long sessionId = (Long) session.getAttribute("loggedUser");
+    	User thisUser = userService.findUserById(sessionId);
+    	model.addAttribute("loggedUser", thisUser);
+		return "index.jsp";
+		}
+    }
 	
 }

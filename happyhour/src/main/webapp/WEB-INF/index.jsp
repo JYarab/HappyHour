@@ -43,7 +43,14 @@
 						</li>	
 					</ul>
 				</div>
-				<a class="navbar-brand" href="/logout"> Logout </a>
+				<c:choose>
+				<c:when test="${loggedUser.id != null}">
+					<a class="navbar-brand" href="/logout"> Logout </a>
+				</c:when>
+				<c:otherwise>
+					<a class="navbar-brand" href="/login"> Login </a>
+				</c:otherwise>
+				</c:choose>
 			</div>
 		</nav>
 	<div class="search-container">
@@ -89,17 +96,11 @@
 					${ingredient},
 			</span>
 			</c:forEach>
-</p>
+			</p>
 					</div>
 				</div>
-				
-
 			</c:forEach>
-
-		
 		</div>
-		
-		
 	</div>
 </div>
 </body>
