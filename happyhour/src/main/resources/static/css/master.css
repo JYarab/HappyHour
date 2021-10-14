@@ -81,15 +81,29 @@ h1{
 	width:100%;
 }
 .row{
-	margin-top:10%;
+	margin-top:8%;
+}
+
+.drinkSearch {
+	margin-bottom:10%;
 	margin-left:50%;
 	transform:translate(-50%,-50%);
 	background:#2f3640;
 	height:40px;
 	border-radius:40px;
 	padding:5px;
-	display:inline-block;
+	min-width: 200px;
+	max-width: 20%;
+	text-align: center;
 }
+
+
+
+.btn-secondary {
+    margin-top: 25px;
+    
+}
+
 .search-text{
 	text-align: center;
 	width: 100%;

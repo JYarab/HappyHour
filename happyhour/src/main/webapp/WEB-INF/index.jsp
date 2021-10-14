@@ -49,11 +49,13 @@
 	<div class="search-container">
 	<h1>What's on Hand</h1>
 		<div class="row">
-		<form action="/">
-			<input class="search-text" type="text" name="searchTerm" id="searchTerm" placeholder="enter an ingredient..." style="">
-			<input type="hidden" name="search" value="i" />
-			<button class="btn btn-secondary">Search</button>
-		</form>
+		<span class="drinkSearch">
+			<form action="/">
+				<input class="search-text" type="text" name="searchTerm" id="searchTerm" placeholder="enter an ingredient..." style="">
+				<input type="hidden" name="search" value="i" />
+				<button class="btn btn-secondary">Search</button>
+			</form>
+		</span>
 		</div>
 		<div class="row">
 		
