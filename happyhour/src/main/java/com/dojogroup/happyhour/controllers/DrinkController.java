@@ -90,7 +90,7 @@ public class DrinkController {
 		final Drink [] thisDrink = objectMapper.treeToValue(result, Drink [].class);
 		
 		System.out.println(resp); 
-		viewModel.addAttribute("drink",thisDrink);
+		viewModel.addAttribute("drink",thisDrink[0]);
 		return "drinkDetail.jsp";
 	}
 

@@ -167,6 +167,16 @@ public class Drink {
 
 
 
+	public String getInstructions() {
+		return instructions;
+	}
+
+
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
+	}
+
+
 	public String getIngredient1() {
 		return ingredient1;
 	}

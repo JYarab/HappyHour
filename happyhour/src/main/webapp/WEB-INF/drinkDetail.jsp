@@ -17,12 +17,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Welcome</h1>
+	<div class="container">
+
+		<h1>Drink Details</h1>
+		<p>${drink.name}</p>
+		<p>${drink.instructions}</p>
+		<p><c:forEach items="${drink.getIngredientList()}" var="ingredient">
+			${ingredient}
+			</c:forEach></p>
 	
-<%-- 	<c:out value="${drink}"/> --%>
-	<c:forEach items="${drink}" var ="detail">
-		<c:out value="${detail.name}"/>
-	</c:forEach>
+	</div>
 	
 </body>
 </html>

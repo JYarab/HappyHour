@@ -3,7 +3,7 @@ package com.dojogroup.happyhour.utilities;
 public class DrinkApiCaller {
 	
 	//Please remove API KEY before pushing repo back up
-	private String apiKey = "9973533/";
+	private String apiKey = "1";
 	
 	private String baseUrl = "https://www.thecocktaildb.com/api/json/v2/"+apiKey;
 	
