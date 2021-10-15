@@ -3,6 +3,8 @@ package com.dojogroup.happyhour.controllers;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.dojogroup.happyhour.models.Drink;
+import com.dojogroup.happyhour.services.UserService;
 import com.dojogroup.happyhour.utilities.DrinkApiCaller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -26,14 +29,29 @@ public class DrinkController {
 	@Autowired
 	RestTemplate restTemplate;
 	
+	@Autowired UserService userService;
+	
 
-	@GetMapping("")
-	public String drinkSearch(@RequestParam(required = false, value="search") String search, @RequestParam(required = false, value="searchTerm") String searchTerm, Model viewModel) throws JsonMappingException, JsonProcessingException {
+	@GetMapping("/happyhour")
+	public String drinkSearch(
+			@RequestParam(required = false, value="searchType") String searchType, 
+			@RequestParam(required = false, value="searchTerm") String searchTerm, 
+			Model viewModel, HttpSession session) throws JsonMappingException, JsonProcessingException {
+		//If user logged in put in session
+		if(session.getAttribute("loggedUser") != null) {
+			viewModel.addAttribute("loggedUser", userService.findUserById((Long) session.getAttribute("loggedUser")));
+		}
 		
-		if(search != null) {
+		if(searchType != null) {			
 			RestTemplate restTemplate = new RestTemplate();		
 			DrinkApiCaller apiCaller = new DrinkApiCaller();
-			String resp = restTemplate.getForObject(apiCaller.searchDrinksByName(searchTerm), String.class);
+			String resp = "";
+			if(searchType.contains("name")){
+				resp = restTemplate.getForObject(apiCaller.searchDrinksByName(searchTerm), String.class);
+			}
+			if(searchType.contains("ingredient")) {
+				resp = restTemplate.getForObject(apiCaller.searchDrinksByIngredient(searchTerm), String.class);
+			}			
 			System.out.println(resp); 
 			final ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 			final JsonNode jsonNode = objectMapper.readTree(resp);

@@ -76,17 +76,5 @@ public class MainController {
     	}
     }
 	
-	//HAPPY HOUR HOME PAGE
-	@GetMapping("/happyhour")
-    public String index(Model model, HttpSession session) {
-		if(session.getAttribute("loggedUser") == null) {
-			return "index.jsp";
-		} else {
-		Long sessionId = (Long) session.getAttribute("loggedUser");
-    	User thisUser = userService.findUserById(sessionId);
-    	model.addAttribute("loggedUser", thisUser);
-		return "index.jsp";
-		}
-    }
-	
+
 }

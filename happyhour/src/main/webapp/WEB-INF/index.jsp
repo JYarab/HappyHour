@@ -16,6 +16,7 @@
 <meta charset="ISO-8859-1">
 <title>Happy Hour Welcome Page</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"crossorigin="anonymous">
+<!-- Local CSS -->
 <link rel="stylesheet" type="text/css" href="css/master.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/a66dc40b69.js" crossorigin="anonymous"></script>
@@ -53,55 +54,65 @@
 				</c:choose>
 			</div>
 		</nav>
-	<div class="search-container">
-	<h1>What's on Hand</h1>
-		<div class="row">
-		<span class="drinkSearch">
-			<form action="/">
-				<input class="search-text" type="text" name="searchTerm" id="searchTerm" placeholder="enter an ingredient..." style="">
-				<input type="hidden" name="search" value="i" />
-				<button class="btn btn-secondary">Search</button>
-			</form>
-		</span>
-		</div>
-		<div class="row">
-		
-			<c:forEach items="${drinkList}" var="drink">
-				
-				<div class="row border">
-					<div class="col text-end">
-				<img src="${drink.imgThumb}" width="100px" alt="" />
-					</div>
-					<div class="col">
-				<p>Name: ${drink.name}</p>
-				<c:if test="${pantry.containsAll(drink.getIngredientList())}">
-				<p style="color: green; font-size: 20px;">You can make this drink!</p>
-				</c:if>
-				
-				<p>Drink ID: ${drink.apiId}</p>
-							
-				
-				<p>
-				<c:forEach items="${drink.getIngredientList()}" var="ingredient">
-				<span
-					<c:choose>
-						<c:when test="${pantry.contains(ingredient)}"> 
-							style="color: green;"
-						</c:when>
-						<c:otherwise>
-						style="color: red;"
-						</c:otherwise>
-					</c:choose>>
-				
-					${ingredient},
-			</span>
-			</c:forEach>
-			</p>
-					</div>
+	</div>
+	
+	<div class="container">
+	
+		<div class="row justify-content-center">
+		<h1>What's on Hand</h1>
+			<div class="col-6">
+			<form action="/happyhour">
+				<div class="input-group justify-content-center">
+				<input type="text" name="searchTerm" id="searchInput" class="form-control" placeholder="Search a drink by...">
+				<select class="form-select" id="searchType" name="searchType" class="rounded-end">
+				    <option value="name">Name</option>
+				    <option value="ingredient">Ingredient</option>
+				    <option value="3">Three</option>
+				  </select>
+				</div>				
+				<div class="text-center">
+					<button class="btn btn-secondary">Search</button>
 				</div>
-			</c:forEach>
+			</form>
+			</div>
 		</div>
 	</div>
-</div>
+		
+<!-- Search Results Go Here -->		
+	<div class="container">
+		
+		<div class="row g-3">
+			<c:forEach items="${drinkList}" var="drink">				
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="card">
+						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
+					    <div class="card-body">
+						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
+								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
+							</c:if>
+							<p class="card-text"><small class="text-muted">
+								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
+									<span
+									<c:choose>
+										<c:when test="${pantry.contains(ingredient)}"> 
+											style="color: green;"
+										</c:when>
+										<c:otherwise>
+											style="color: red;"
+										</c:otherwise>
+									</c:choose>>
+									${ingredient},
+									</span>
+								</c:forEach>
+								</small>
+							</p>
+						</div>
+					</div>							
+				</div>							
+			</c:forEach>
+		</div>
+		
+	</div>
 </body>
 </html>
