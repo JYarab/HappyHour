@@ -26,7 +26,7 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Home </a>
+				<a class="navbar-brand" href="/happyhour">Home </a>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
@@ -40,7 +40,7 @@
 					</ul>
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="#"> Browse Drinks</a>
+							aria-current="page" href="/luckyDrink"> Browse Drinks</a>
 						</li>	
 					</ul>
 				</div>

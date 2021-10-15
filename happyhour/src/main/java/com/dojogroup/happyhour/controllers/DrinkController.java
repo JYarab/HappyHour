@@ -78,7 +78,7 @@ public class DrinkController {
 		
 		return "index.jsp";
 	}
-	
+	//  Search For One Drink by ID
 	@GetMapping("/drinks/{id}")
 	public String getDringDet(@PathVariable("id") String apiId,Model viewModel) throws JsonMappingException, JsonProcessingException {
 		DrinkApiCaller apiCaller = new DrinkApiCaller();
@@ -93,7 +93,25 @@ public class DrinkController {
 		viewModel.addAttribute("drink",thisDrink[0]);
 		return "drinkDetail.jsp";
 	}
-
 	
+	//  Feeling luck search for one drink
+	
+	@GetMapping("/luckyDrink")
+	public String getRandomDrink(Model viewModel) throws JsonMappingException, JsonProcessingException {
+		DrinkApiCaller apiCaller = new DrinkApiCaller();
+		String resp = "";
+		resp=restTemplate.getForObject(apiCaller.get10RandomDrinks(), String.class);
+		final ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		final JsonNode jsonNode = objectMapper.readTree(resp);
+		final JsonNode result = jsonNode.get("drinks");
+		final Drink [] luckyDrink = objectMapper.treeToValue(result, Drink [].class);
+		Drink [] threeDrinks=new Drink[3];
+		for(int i=0;i<threeDrinks.length;i++) {
+			threeDrinks[i]=luckyDrink[i];
+		}
+		System.out.println(resp); 
+		viewModel.addAttribute("drinks",threeDrinks);
+		return "luckyShot.jsp";
+	}
 	
 }
