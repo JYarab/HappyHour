@@ -7,6 +7,15 @@ body{
 	
 }
 
+.container-fluid {
+	width: 100%;
+	min-height: 50px;
+}
+
+.navbar {
+	position: fixed;
+	width: 99%;
+}
 
 #searchInput {
 	margin-right:0;
