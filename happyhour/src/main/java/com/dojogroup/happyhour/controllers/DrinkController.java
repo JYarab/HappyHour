@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
@@ -77,5 +78,22 @@ public class DrinkController {
 		
 		return "index.jsp";
 	}
+	
+	@GetMapping("/drinks/{id}")
+	public String getDringDet(@PathVariable("id") String apiId,Model viewModel) throws JsonMappingException, JsonProcessingException {
+		DrinkApiCaller apiCaller = new DrinkApiCaller();
+		String resp = "";
+		resp=restTemplate.getForObject(apiCaller.lookupDrinkById(apiId), String.class);
+		final ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		final JsonNode jsonNode = objectMapper.readTree(resp);
+		final JsonNode result = jsonNode.get("drinks");
+		final Drink [] thisDrink = objectMapper.treeToValue(result, Drink [].class);
+		
+		System.out.println(resp); 
+		viewModel.addAttribute("drink",thisDrink);
+		return "drinkDetail.jsp";
+	}
+
+	
 	
 }
