@@ -85,7 +85,7 @@
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
-						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
+						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
 					    <div class="card-body">
 						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
