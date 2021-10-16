@@ -13,8 +13,10 @@ body{
 }
 
 .navbar {
+
 	position: fixed;
-	width: 99%;
+	top: 0;
+  	width: 100%;
 }
 
 #searchInput {

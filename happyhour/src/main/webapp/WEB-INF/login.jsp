@@ -9,7 +9,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="/css/styleLogin.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Login Page</title>
 </head>
 <body>
@@ -27,18 +27,27 @@
     	<p><form:errors path="user.*"/></p>
     	<p><c:out value="${error}" /></p>
 	</div>
+	<div class=" card bg-dark login-box">
+	    <!-- Login Form -->
+	<form method="post" action="/login">
+	<div class="text-box">
+		<input type="text" id="email" class="fadeIn second" name="email" placeholder="login">
+	</div>
+    <div class="text-box">
+         <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+    </div>
 
-    <!-- Login Form -->
-    <form method="post" action="/login">
-      <input type="text" id="email" class="fadeIn second" name="email" placeholder="login">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-
-    <!-- register -->
+        <!-- register -->
     <div id="formFooter">
       <a class="underlineHover" href="/register">Register New Account</a>
     </div>
+	</div>
+
+
+
+
   </div>
 </div>
 
