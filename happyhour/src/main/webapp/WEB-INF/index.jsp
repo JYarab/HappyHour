@@ -9,7 +9,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<!-- JSP functions -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,7 +81,7 @@
 		
 <!-- Search Results Go Here -->		
 	<div class="container">
-		
+		<h4>${fn:length(drinkList)} Results</h4>
 		<div class="row g-3">
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
