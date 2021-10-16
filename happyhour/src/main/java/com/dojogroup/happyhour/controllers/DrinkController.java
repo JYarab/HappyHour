@@ -81,9 +81,10 @@ public class DrinkController {
 	//  Search For One Drink by ID
 	@GetMapping("/drinks/{id}")
 	public String getDringDet(@PathVariable("id") String apiId,Model viewModel) throws JsonMappingException, JsonProcessingException {
+		RestTemplate restTemplate = new RestTemplate();	
 		DrinkApiCaller apiCaller = new DrinkApiCaller();
-		String resp = "";
-		resp=restTemplate.getForObject(apiCaller.lookupDrinkById(apiId), String.class);
+		
+		String resp = restTemplate.getForObject(apiCaller.lookupDrinkById(apiId), String.class);
 		final ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		final JsonNode jsonNode = objectMapper.readTree(resp);
 		final JsonNode result = jsonNode.get("drinks");

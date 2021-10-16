@@ -72,7 +72,7 @@ public class MainController {
     	} else {
     		userService.registerUser(user);
     		session.setAttribute("loggedUser", user.getId());
-    		return "redirect:/index";
+    		return "redirect:/happyhour";
     	}
     }
 	
