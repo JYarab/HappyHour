@@ -28,7 +28,7 @@ public class MainController {
 	//DASHBOARD
 	@RequestMapping("/")
 	public String redirHome() {
-		return "redirect:/";
+		return "redirect:/happyhour";
 	}
 	
 	//VIEW LOGIN FORM / PAGE

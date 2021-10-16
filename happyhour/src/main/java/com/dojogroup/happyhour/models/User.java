@@ -1,12 +1,17 @@
 package com.dojogroup.happyhour.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -57,6 +62,15 @@ public class User {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
+    
+    
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+	    name = "user_ingredient", 
+	    joinColumns = @JoinColumn(name = "user_id"), 
+	    inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+	)
+	 private List<Ingredient> bar_stock;
     
     //CONSTRUCTOR
     public User() {
@@ -111,6 +125,12 @@ public class User {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public List<Ingredient> getBar_stock() {
+		return bar_stock;
+	}
+	public void setBar_stock(List<Ingredient> bar_stock) {
+		this.bar_stock = bar_stock;
 	}
 
 	

@@ -42,19 +42,24 @@ public class DrinkApiCaller {
 		return baseUrl+"/random.php";
 	}
 	
-	//Returns 10 random drinks 
+	//Returns 10 random drinks with full details
 	public String get10RandomDrinks() {
 		return baseUrl+"/randomselection.php";
 	}
 	
-	//Returns 20 popular drinks 
+	//Returns 20 popular drinks with full details
 	public String getPopularDrinks() {
 		return baseUrl+"/popular.php";
 	}
 	
-	//Returns 10 latest drinks 
+	//Returns 10 latest drinks with full details
 	public String getLatestDrinks() {
 		return baseUrl+"/latest.php";
+	}
+	
+	//Returns a full list of ingredients NAMES ONLY
+	public String getIngredientList() {
+		return baseUrl+"/list.php?i=list";
 	}
 	
 
