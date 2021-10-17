@@ -3,10 +3,29 @@ package com.dojogroup.happyhour.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
+@Entity
+@Table(name="drink")
 public class Drink {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+		
 		
 	@JsonProperty("strDrink")
 	private String name;
@@ -65,12 +84,13 @@ public class Drink {
 	@JsonProperty("strIngredient15")
 	private String ingredient15;
 
-	
+
 	
 	Drink(){
 		
 	}
-
+	
+	
 	
 	public List<String> getIngredientList() {
 		ArrayList<String> newList = new ArrayList<String>();		
@@ -122,6 +142,7 @@ public class Drink {
 					
 		return newList;
 	}
+	
 
 	
 
@@ -383,12 +404,44 @@ public class Drink {
 	public void setIngredient15(String ingredient15) {
 		this.ingredient15 = ingredient15;
 	}
-
-
-
-
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+	    name = "user_favorite", 
+	    joinColumns = @JoinColumn(name = "drink_id"), 
+	    inverseJoinColumns = @JoinColumn(name = "user_id")
+	
+			)
+	
 
 	
+	private List<User> favorites;
+	
+
+	public List<User> getFavorites() {
+			return favorites;
+	}
+	
+	public void setFavorites(List<User> favorites) {
+
+		this.favorites = favorites;
+	}
+	
+
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User User) {
+		this.user = User;
+	}
+
 	
 	
 }
