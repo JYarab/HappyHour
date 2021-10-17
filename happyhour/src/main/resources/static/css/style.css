@@ -7,6 +7,7 @@ body{
 	background:url("/image/login.jpg") no-repeat center center fixed;
 	background-size:cover;
 }
+
 .login-box{
 	width:280px;
 	position:absolute;
@@ -14,18 +15,20 @@ body{
 	left:50%;
 	transform:translate(-50%,-50%);
 	color:white ;
-	
-}
-.login-box input{
-	margin-bottom:20px;
-}
-.card{
-	padding:40px;
-    background-color: rgba(52,58,64,0.75)
 }
 
+
+.card{
+	padding:40px;
+    background-color: rgba(52,58,64,0.75);
+    
+}
 a{
 	color:white;
+}
+
+.error{
+	color:red;
 }
 
 .reg-bg{
@@ -45,6 +48,9 @@ a{
 	color:white ;
 	
 }
-.reg-box input{
-	margin-bottom:20px;
+.card .btn{
+	float:right;
+	margin-top:20px;
+	padding:10px;
+	border-radius:1.5rem;
 }
