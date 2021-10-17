@@ -82,7 +82,7 @@
 <!-- Search Results Go Here -->		
 	<div class="container">
 		<h4>${fn:length(drinkList)} Results</h4>
-		<div class="row g-3">
+		<div class="row g-3" style="height: 70vh;overflow-y: scroll;">
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
