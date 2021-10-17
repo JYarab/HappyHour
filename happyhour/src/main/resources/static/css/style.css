@@ -21,10 +21,30 @@ body{
 }
 .card{
 	padding:40px;
-    opacity: 0.75;
+    background-color: rgba(52,58,64,0.75)
 }
-
 
 a{
 	color:white;
+}
+
+.reg-bg{
+	margin:0;
+	padding:0;
+	font-family:sans-serif;
+	background:url("/image/reg2.jpg") no-repeat center center fixed;
+	background-size:cover;
+}
+
+.reg-box{
+	width:280px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	color:white ;
+	
+}
+.reg-box input{
+	margin-bottom:20px;
 }
