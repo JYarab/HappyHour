@@ -17,8 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
-lolol
+	<div class="container">l
 		<h1>Drink Details</h1>
 		<p>${drink.name}</p>
 		<p>${drink.instructions}</p>

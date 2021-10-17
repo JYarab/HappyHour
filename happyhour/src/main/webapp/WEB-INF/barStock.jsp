@@ -4,6 +4,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- JSP functions -->
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- spring forms -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +20,17 @@
 	<h4>Here's what you can make!</h4>
 <!-- Search Results Go Here -->		
 	<div class="container">
+
+	
+	<form:form method="POST" action="/happyhour/mybar/add" modelAttribute="ingredient">
+        <p>
+            <form:input type="text" placeholder="choose an ingredient" path="name"/>
+            <input type="submit" value="Add"/>
+        </p>
+    </form:form>
+    
+    
+    
 		<div class="row g-3">
 			<c:forEach items="${allDrinks}" var="drink">	
 				<c:if test="${pantry.containsAll(drink.getIngredientList())}">						
