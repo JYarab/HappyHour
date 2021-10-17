@@ -61,7 +61,7 @@
 	
 		<div class="row justify-content-center">
 		<h1>What's on Hand</h1>
-			<div class="col-6">
+			<div class="col-12 col-md-8 col-lg-6">
 			<form action="/happyhour">
 				<div class="input-group justify-content-center">
 				<input type="text" name="searchTerm" id="searchInput" class="form-control" placeholder="Search a drink by...">
