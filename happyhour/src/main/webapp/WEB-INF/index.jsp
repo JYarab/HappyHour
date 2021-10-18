@@ -21,6 +21,8 @@
 <link rel="stylesheet" type="text/css" href="css/master.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/a66dc40b69.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="/js/apiCall.js"></script>
 </head>
 <body>
 <body>
@@ -94,17 +96,17 @@
 							</c:if>
 							<p class="card-text"><small class="text-muted">
 								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
-									<span
-									<c:choose>
-										<c:when test="${pantry.contains(ingredient)}"> 
-											style="color: green;"
-										</c:when>
-										<c:otherwise>
-											style="color: red;"
-										</c:otherwise>
-									</c:choose>>
-									${ingredient},
-									</span>
+									<button type="button" class="btn btn-link p-0 m-0 d-inline align-baseline" 
+										<c:choose>
+											<c:when test="${pantry.contains(ingredient)}"> 
+												style="color: green;"
+											</c:when>
+											<c:otherwise>
+												style="color: red;"
+											</c:otherwise>
+										</c:choose> data-bs-toggle="modal" data-bs-target="#ingredientModal" onclick="getData('https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredient}');">
+									  ${ingredient}
+									</button>,
 								</c:forEach>
 								</small>
 							</p>
@@ -113,7 +115,46 @@
 				</div>							
 			</c:forEach>
 		</div>
-		
+<!-- Ingredient Modal -->
+<div class="modal fade" id="ingredientModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ingredientName"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      	<div id="imgDiv" class=" row justify-content-center"></div>
+      	<div class="modal-info  overflow-auto">
+        	<p id="description"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Drink Modal -->
+<div class="modal fade" id="drinkModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="drinkName"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      	<div id="drinkImgDiv" class=" row justify-content-center"></div>
+      	<div class="modal-info  overflow-auto">
+        	<p id="instructions"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 	</div>
 </body>
 </html>
