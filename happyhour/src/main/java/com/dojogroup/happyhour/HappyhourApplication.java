@@ -12,6 +12,7 @@ public class HappyhourApplication {
 		SpringApplication.run(HappyhourApplication.class, args);
 	}
 	
+	
 	@Bean
 	   public RestTemplate getRestTemplate() {
 	      return new RestTemplate();

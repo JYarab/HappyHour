@@ -72,7 +72,6 @@ public class BarStockController {
 		//User's pantry will go here
 		ArrayList<String> pantry = new ArrayList<String>(Arrays.asList("Tequila", "Triple sec", "Lime juice", "Salt", "Ice", "Cream of coconut"));
 		viewModel.addAttribute("pantry", pantry);
-		viewModel.addAttribute("allIngredients", iRepo.findAll());
 		
 		viewModel.addAttribute("allDrinks", session.getAttribute("allDrinks"));
 		viewModel.addAttribute("user", uService.findUserById((Long) session.getAttribute("loggedUser")));
@@ -82,17 +81,18 @@ public class BarStockController {
 	
 	
 	@PostMapping("/happyhour/mybar/add")
-	public String addToStock(@RequestParam("ingredient") String ingredName, HttpSession session, RedirectAttributes errors) {
-		if(iService.authenticateIngredient(ingredName)) {
+	public String addToStock(@RequestParam("ingredient") String ingredName, HttpSession session, RedirectAttributes message) {
+		if(iService.authenticateIngredient(ingredName, uService.findUserById((Long) session.getAttribute("loggedUser")))) {
 			//if this returns true, the ingred is in the db. Add it to user.bar_stock
 			Long sessionId = (Long) session.getAttribute("loggedUser");
 	    	User thisUser = uService.findUserById(sessionId);
 	    	Ingredient thisIngred = iService.findByName(ingredName);
 	    	uService.addIngredient(thisUser, thisIngred);
+	    	message.addFlashAttribute("message", "The item was added to your pantry");
 	    	return "redirect:/happyhour/mybar";
 		}
 		//if ingredient authentication returns false, the ingred does not exist in db. serve error to user.
-		errors.addFlashAttribute("error", "this ingredient doesn't exist in the db.");
+		message.addFlashAttribute("message", "this ingredient either doesn't exist in the db or you've already stocked it.");
     	return "redirect:/happyhour/mybar";
 	}
 	

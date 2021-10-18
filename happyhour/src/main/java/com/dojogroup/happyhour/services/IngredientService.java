@@ -1,7 +1,10 @@
 package com.dojogroup.happyhour.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,17 +42,31 @@ public class IngredientService {
 		return iRepo.findByName(ingredient);
 	}
 	
-	public boolean authenticateIngredient(String ingredName) {
+	public boolean authenticateIngredient(String ingredName, User user) {
         // first find the ingredient by name
 		Ingredient ingredient = iRepo.findByName(ingredName);
         // if we can't find it by name, return false
         if(ingredient == null) {
             return false;
+        }
+        //or if the ingredient has already been added to this user's pantry, send false
+        if(user.getBar_stock().contains(ingredient)){
+        	return false;
         } else {
-        	//other we've found the ingredient in the DB and can return true
+        //otherwise, the ingred both exists in DB and not in user pantry. Return true.
         	return true;
         }
     }
+
+//	public String listifyIngredients() {
+//		List<String> strList = new ArrayList<String>();
+//		strList.add("one");
+//		strList.add("two");
+//		strList.add("three");
+//		for (int i = 0; i < strList.size(); i++) { 
+//		return inStringList;
+//	}
+
 
 
 }
