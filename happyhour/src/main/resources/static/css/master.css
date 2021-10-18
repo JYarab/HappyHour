@@ -7,6 +7,10 @@ body{
 	overflow-y: hidden;
 }
 
+.modal-info{
+	max-height:400px;
+}
+
 .container-fluid {
 	width: 100%;
 	min-height: 50px;
