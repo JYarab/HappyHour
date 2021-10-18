@@ -20,16 +20,15 @@
 	<h4>Here's what you can make!</h4>
 <!-- Search Results Go Here -->		
 	<div class="container">
-
-	
-	<form:form method="POST" action="/happyhour/mybar/add" modelAttribute="ingredient">
-        <p>
-            <form:input type="text" placeholder="choose an ingredient" path="name"/>
-            <input type="submit" value="Add"/>
-        </p>
-    </form:form>
-    
-    
+   
+    <p><c:out value="${error}" /></p>
+    <form method="post" action="/happyhour/mybar/add">
+    	<p>
+    		<label type="text" for="ingredient">Ingredient</label>
+    		<input type="text" id="ingredient" name="ingredient"/>
+    	</p>
+        <input type="submit" value="Add"/>
+    </form>
     
 		<div class="row g-3">
 			<c:forEach items="${allDrinks}" var="drink">	

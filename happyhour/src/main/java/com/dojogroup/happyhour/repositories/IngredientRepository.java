@@ -10,6 +10,7 @@ import com.dojogroup.happyhour.models.Ingredient;
 
 @Repository
 public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
+	Ingredient findByName(String ingredient);
 	
 	List<Ingredient> findAll();
 

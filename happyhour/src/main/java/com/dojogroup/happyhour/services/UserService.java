@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import com.dojogroup.happyhour.models.Ingredient;
 import com.dojogroup.happyhour.models.User;
 import com.dojogroup.happyhour.repositories.UserRepo;
 
@@ -51,5 +52,10 @@ public class UserService {
             }
         }
     }
+	
+	public User addIngredient(User user, Ingredient ingredient) {
+		user.getBar_stock().add(ingredient);
+		return userRepo.save(user);
+	}
 	
 }
