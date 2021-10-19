@@ -9,6 +9,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 10%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="css/barStockStyling.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"crossorigin="anonymous">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -42,7 +67,10 @@
     </form>
     <h4>Here's some suggestions!</h4>
     ${suggestions.size()} possibilities:
-    ${suggestions}
+    <button type="button" class="collapsible"><h3>Show me</h3></button>
+	<div class="content">
+    	${suggestions}
+    	</div>
     <h4>Here's what you can make now!</h4>
 		<div class="row g-3">
 			<c:forEach items="${allDrinks}" var="drink">	
@@ -81,5 +109,22 @@
 	</div>	
 	
 	</div>
+	
+	<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 </html>
