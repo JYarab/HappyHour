@@ -2,6 +2,7 @@ package com.dojogroup.happyhour.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.dojogroup.happyhour.models.Drink;
+import com.dojogroup.happyhour.models.User;
 import com.dojogroup.happyhour.services.UserService;
 import com.dojogroup.happyhour.utilities.DrinkApiCaller;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -65,7 +67,9 @@ public class DrinkController {
 			System.out.println(resultList);
 			
 		//User's pantry will go here
-			ArrayList<String> pantry = new ArrayList<String>(Arrays.asList("Tequila", "Triple sec", "Lime juice", "Salt", "Ice", "Cream of coconut"));
+			Long sessionId = (Long) session.getAttribute("loggedUser");
+			User thisUser = userService.findUserById(sessionId);
+			List<String> pantry=userService.getListIngredient(thisUser);
 			viewModel.addAttribute("pantry", pantry);
 			
 			viewModel.addAttribute("drinkList", resultList);

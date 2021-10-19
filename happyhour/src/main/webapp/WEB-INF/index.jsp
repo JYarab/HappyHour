@@ -14,6 +14,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content1 {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Happy Hour Welcome Page</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"crossorigin="anonymous">
@@ -90,30 +114,6 @@
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
-<script type="text/javascript">
-$(function(){
-    $('#button').click(function(){
-        if(!$('#iframe').length) {
-                $('#iframeHolder').html('<iframe id="iframe" src="/WEB-INF/drinkDetail.jsp" width="700" height="450"></iframe>');
-        }
-    });   
-});
-</script>
-<a id="button">Button</a>
-<div id="iframeHolder"></div>
-
-
-<script>
-function _ocultarIframe(){
-
- // document.getElementById('iframe').style.display = 'none';
- var elem = document.getElementById("iframe");
-   elem.parentNode.removeChild(elem);
-
-  }
-    </script>
-
-
 
 						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
 					    <div class="card-body">
@@ -137,6 +137,15 @@ function _ocultarIframe(){
 								</c:forEach>
 								</small>
 							</p>
+							<button type="button" class="collapsible">Show me</button>
+							<div class="content1">
+    							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    							ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+    							ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    							non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    						</div>
 						</div>
 					</div>							
 				</div>							
@@ -183,5 +192,23 @@ function _ocultarIframe(){
   </div>
 </div>
 	</div>
+	
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 </body>
 </html>

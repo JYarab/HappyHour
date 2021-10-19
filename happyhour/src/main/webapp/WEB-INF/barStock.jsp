@@ -26,7 +26,7 @@
   background-color: #555;
 }
 
-.content {
+.content1 {
   padding: 0 18px;
   display: none;
   overflow: hidden;
@@ -68,7 +68,7 @@
     <h4>Here's some suggestions!</h4>
     ${suggestions.size()} possibilities:
     <button type="button" class="collapsible"><h3>Show me</h3></button>
-	<div class="content">
+	<div class="content1">
     	${suggestions}
     	</div>
     <h4>Here's what you can make now!</h4>
