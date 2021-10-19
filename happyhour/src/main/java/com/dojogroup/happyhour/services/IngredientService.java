@@ -85,8 +85,53 @@ public class IngredientService {
 			
 		}
 		for(int i = 0; i < matchCounter.size();i++) {
-			if(matchCounter.get(i).contentEquals("banana")) {
-				System.out.println("With just a banana you can make it!");
+			if(matchCounter.get(i).contentEquals("milk")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("lemon")) {
+				System.out.println("With just some "+matchCounter.get(i)+"s you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("bitters")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("berries")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("brown sugar")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("lime")) {
+				System.out.println("With just some "+matchCounter.get(i)+"s you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("lemon juice")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("lime juice")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("cider")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("honey")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("club soda")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("coca-cola")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("cola")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("blueberries")) {
+				System.out.println("With just some "+matchCounter.get(i)+"s you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("lemon juice")) {
+				System.out.println("With just some "+matchCounter.get(i)+" you can make it!");
+			}
+			if(matchCounter.get(i).contentEquals("lime juice")) {
+				System.out.println("With just some "+matchCounter.get(i)+"s you can make it!");
 			} else {
 				continue;
 			}
