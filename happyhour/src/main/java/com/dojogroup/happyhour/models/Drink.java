@@ -95,49 +95,49 @@ public class Drink {
 	public List<String> getIngredientList() {
 		ArrayList<String> newList = new ArrayList<String>();		
 		if( this.ingredient1 != null) {
-			newList.add(this.ingredient1);
+			newList.add(this.ingredient1.toLowerCase());
 		}
 		if( this.ingredient2 != null) {
-			newList.add(this.ingredient2);
+			newList.add(this.ingredient2.toLowerCase());
 		}
 		if( this.ingredient3 != null) {
-			newList.add(this.ingredient3);
+			newList.add(this.ingredient3.toLowerCase());
 		}
 		if( this.ingredient4 != null) {
-			newList.add(this.ingredient4);
+			newList.add(this.ingredient4.toLowerCase());
 		}
 		if( this.ingredient5 != null) {
-			newList.add(this.ingredient5);
+			newList.add(this.ingredient5.toLowerCase());
 		}
 		if( this.ingredient6 != null) {
-			newList.add(this.ingredient6);
+			newList.add(this.ingredient6.toLowerCase());
 		}
 		if( this.ingredient7 != null) {
-			newList.add(this.ingredient7);
+			newList.add(this.ingredient7.toLowerCase());
 		}
 		if( this.ingredient8 != null) {
-			newList.add(this.ingredient8);
+			newList.add(this.ingredient8.toLowerCase());
 		}
 		if( this.ingredient9 != null) {
-			newList.add(this.ingredient9);
+			newList.add(this.ingredient9.toLowerCase());
 		}
 		if( this.ingredient10 != null) {
-			newList.add(this.ingredient10);
+			newList.add(this.ingredient10.toLowerCase());
 		}
 		if( this.ingredient11 != null) {
-			newList.add(this.ingredient11);
+			newList.add(this.ingredient11.toLowerCase());
 		}
 		if( this.ingredient12 != null) {
-			newList.add(this.ingredient12);
+			newList.add(this.ingredient12.toLowerCase());
 		}
 		if( this.ingredient13 != null) {
-			newList.add(this.ingredient13);
+			newList.add(this.ingredient13.toLowerCase());
 		}
 		if( this.ingredient14 != null) {
-			newList.add(this.ingredient14);
+			newList.add(this.ingredient14.toLowerCase());
 		}
 		if( this.ingredient15 != null) {
-			newList.add(this.ingredient15);
+			newList.add(this.ingredient15.toLowerCase());
 		}
 					
 		return newList;

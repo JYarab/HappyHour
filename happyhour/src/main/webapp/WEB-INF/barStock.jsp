@@ -41,20 +41,20 @@
     
 		<div class="row g-3">
 			<c:forEach items="${allDrinks}" var="drink">	
-				<c:if test="${pantry.containsAll(drink.getIngredientList())}">						
+				<c:if test="${pantry1.containsAll(drink.getIngredientList())}">						
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
 						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
 					    <div class="card-body">
 						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
-						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
+						    <c:if test="${pantry1.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
 							<p class="card-text"><small class="text-muted">
 								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
 									<span
 									<c:choose>
-										<c:when test="${pantry.contains(ingredient)}"> 
+										<c:when test="${pantry1.contains(ingredient)}"> 
 											style="color: green;"
 										</c:when>
 										<c:otherwise>

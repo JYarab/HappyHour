@@ -23,6 +23,8 @@
 <script src="https://kit.fontawesome.com/a66dc40b69.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="/js/apiCall.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
 </head>
 <body>
 <body>
@@ -88,6 +90,31 @@
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
+<script type="text/javascript">
+$(function(){
+    $('#button').click(function(){
+        if(!$('#iframe').length) {
+                $('#iframeHolder').html('<iframe id="iframe" src="/WEB-INF/drinkDetail.jsp" width="700" height="450"></iframe>');
+        }
+    });   
+});
+</script>
+<a id="button">Button</a>
+<div id="iframeHolder"></div>
+
+
+<script>
+function _ocultarIframe(){
+
+ // document.getElementById('iframe').style.display = 'none';
+ var elem = document.getElementById("iframe");
+   elem.parentNode.removeChild(elem);
+
+  }
+    </script>
+
+
+
 						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
 					    <div class="card-body">
 						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>

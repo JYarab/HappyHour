@@ -66,13 +66,22 @@ public class BarStockController {
 		final JsonNode result = jsonNode.get("drinks");
 		final Drink [] allDrinks = objectMapper.treeToValue(result, Drink [].class);
 		
+		for(Drink drink : allDrinks) {
+			System.out.println(drink.getIngredientList());
+		}
+		System.out.println(allDrinks);
+		
 		session.setAttribute("allDrinks", allDrinks);
 		}
 		
-		//User's pantry will go here
-		ArrayList<String> pantry = new ArrayList<String>(Arrays.asList("Tequila", "Triple sec", "Lime juice", "Salt", "Ice", "Cream of coconut"));
-		viewModel.addAttribute("pantry", pantry);
-		
+
+//		List<Ingredient> allIngredients = iRepo.findAll();
+//		viewModel.addAttribute("allIngredients", allIngredients);
+		Long sessionId = (Long) session.getAttribute("loggedUser");
+		User thisUser = uService.findUserById(sessionId);
+		List<String> pantry1=uService.getListIngredient(thisUser);
+		viewModel.addAttribute("pantry1", pantry1);
+		System.out.println("pantry1: "+pantry1);
 		viewModel.addAttribute("allDrinks", session.getAttribute("allDrinks"));
 		viewModel.addAttribute("user", uService.findUserById((Long) session.getAttribute("loggedUser")));
 		

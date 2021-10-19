@@ -1,5 +1,7 @@
 package com.dojogroup.happyhour.services;
 
+import java.util.ArrayList;
+import java.util.List;
 //import java.util.List;
 import java.util.Optional;
 
@@ -57,5 +59,14 @@ public class UserService {
 		user.getBar_stock().add(ingredient);
 		return userRepo.save(user);
 	}
+	
+	public List<String> getListIngredient(User user){
+        List<String> strIngredient=new ArrayList<String>();
+        List<Ingredient> objIngredieant=user.getBar_stock();
+        for(Ingredient ingr:objIngredieant) {
+            strIngredient.add(ingr.getName().toLowerCase());
+        }
+        return strIngredient;
+    }
 	
 }
