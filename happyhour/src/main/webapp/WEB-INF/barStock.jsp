@@ -23,13 +23,15 @@
 <title>${user.firstName}'s Bar</title>
 </head>
 <body>
-
 	<div class="container">
+	<a href="/happyhour">Back</a>
 	<h4>There are ${fn:length(allDrinks)} Drinks in the Database.</h4>
-	<h4>Here's what you can make!</h4>
 <!-- Search Results Go Here -->		
 	<div class="container">
-   
+   <div class=pantry_container>
+   <h5>What's on hand:</h5>
+   	<p>${pantry}</p>
+   </div>
    <p><c:out value="${message}" /></p>
     <p><c:out value="${error}" /></p>
     <form method="post" action="/happyhour/mybar/add">
@@ -38,23 +40,26 @@
 		</div>
         <input type="submit" value="Add"/>
     </form>
-    
+    <h4>Here's some suggestions!</h4>
+    ${suggestions.size()} possibilities:
+    ${suggestions}
+    <h4>Here's what you can make now!</h4>
 		<div class="row g-3">
 			<c:forEach items="${allDrinks}" var="drink">	
-				<c:if test="${pantry1.containsAll(drink.getIngredientList())}">						
+				<c:if test="${pantry.containsAll(drink.getIngredientList())}">						
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
 						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
 					    <div class="card-body">
 						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
-						    <c:if test="${pantry1.containsAll(drink.getIngredientList())}">
+						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
 							<p class="card-text"><small class="text-muted">
 								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
 									<span
 									<c:choose>
-										<c:when test="${pantry1.contains(ingredient)}"> 
+										<c:when test="${pantry.contains(ingredient)}"> 
 											style="color: green;"
 										</c:when>
 										<c:otherwise>

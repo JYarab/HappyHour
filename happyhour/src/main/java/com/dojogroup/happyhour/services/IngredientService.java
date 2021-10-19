@@ -3,13 +3,11 @@ package com.dojogroup.happyhour.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dojogroup.happyhour.models.Drink;
 import com.dojogroup.happyhour.models.Ingredient;
 import com.dojogroup.happyhour.models.User;
 import com.dojogroup.happyhour.repositories.IngredientRepository;
@@ -58,7 +56,45 @@ public class IngredientService {
         }
     }
 
-
-
+	public List<String> superSmartSuggestionator(Drink[] allDrinks, List<String> pantry){
+		ArrayList<String> allSuggestions = new ArrayList<String>();
+		ArrayList<String> matchCounter = new ArrayList<String>();
+		for(Drink drink : allDrinks) {
+			List<String> uniqueList = new ArrayList<String>();
+			List<String> drinkIngreds = drink.getIngredientList();
+			uniqueList.add(drink.getName());
+			System.out.println("drink array: "+drinkIngreds);
+			
+			for(int i = 0; i < drinkIngreds.size();i++) {
+				if(pantry.contains(drinkIngreds.get(i))){
+					continue;
+				} else {
+					uniqueList.add(drinkIngreds.get(i));
+					System.out.println("this is whats passing: "+drinkIngreds.get(i));
+				}
+		
+			}
+			System.out.println("unique ingredients are: "+uniqueList);
+			if(uniqueList.size() == 2) {
+				allSuggestions.add("you need: "+ uniqueList.get(1)+" to make a "+uniqueList.get(0)+"!");
+				matchCounter.add(uniqueList.get(1));
+				System.out.println("you only need "+uniqueList.get(1)+" to make a "+uniqueList.get(0)+"!");
+			} else {
+				continue;
+			}
+			
+		}
+		for(int i = 0; i < matchCounter.size();i++) {
+			if(matchCounter.get(i).contentEquals("banana")) {
+				System.out.println("With just a banana you can make it!");
+			} else {
+				continue;
+			}
+		}
+		
+		System.out.println(allSuggestions.size());
+		System.out.println(allSuggestions);
+		return allSuggestions;
+	}
 
 }

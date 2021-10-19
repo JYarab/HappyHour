@@ -21,6 +21,7 @@
 		<h1>Drink Details</h1>
 		<p>${drink.name}</p>
 		<p>${drink.instructions}</p>
+		<p>${drink.strMeasure1}</p>
 		<p><c:forEach items="${drink.getIngredientList()}" var="ingredient">
 			${ingredient}
 			</c:forEach></p>
