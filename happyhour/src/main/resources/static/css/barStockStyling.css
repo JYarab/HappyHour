@@ -4,12 +4,64 @@ body{
 /*     background-color: #495057; */
 	background:url("/image/pantry.jpg") no-repeat center center fixed;
 	background-size:cover;
-	overflow-y: hidden;
 	background-color:red;
 }
 
+#button2 {
+	min-width:150px;
+	max-width:200px;
+	width: 35%;
+}
+
+#button1 {
+	min-width:150px;
+	max-width:200px;
+	width: 35%;
+	display: block;
+    margin-top: 5px;
+}
 
 
+.collapsible {
+	vertical-align: top;
+	min-width: 5%;
+}
+
+
+.dropdowns_container {
+	display:inline-block;
+	width:20%;
+	margin-left:12px;
+}
+
+.content1 {
+	width: 100%;
+	background-color:transparent;
+	color:white;
+	font-weight: bold;
+	display:inline-block;
+	margin-left:-10px;
+	
+}
+.content2 {
+	width: 100%;
+	background-color:transparent;
+	color:white;
+	font-weight: bold;
+	display:inline-block;
+	margin-left:12px;
+	max-width:95%;
+}
+
+.container1 {
+	display:inline-block;
+	max-width: 55%;
+	vertical-align: top;
+}
+
+.container2 {
+	display:inline-block;
+}
 
 
 .modal-info{
@@ -37,7 +89,8 @@ body{
     min-width: 200px;
 	max-width: 20%;
     height: 40px;
-    text-align: center;    
+    text-align: center;
+    color: white;  
 }
 
 #searchType{
@@ -56,6 +109,12 @@ body{
     border-color: #8d99a5;
 }
 
+
+.messages {
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
 
 .search-container {
 	display:inline-block;
