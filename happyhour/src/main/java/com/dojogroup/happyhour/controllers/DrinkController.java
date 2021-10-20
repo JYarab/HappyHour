@@ -35,6 +35,7 @@ public class DrinkController {
 	@Autowired UserService userService;
 	
 
+	
 	@GetMapping("/happyhour")
 	public String drinkSearch(
 			@RequestParam(required = false, value="searchType") String searchType, 
@@ -45,7 +46,7 @@ public class DrinkController {
 			viewModel.addAttribute("loggedUser", userService.findUserById((Long) session.getAttribute("loggedUser")));
 		}
 		
-		if(searchType != null) {			
+		if(searchType != null) {
 			RestTemplate restTemplate = new RestTemplate();		
 			DrinkApiCaller apiCaller = new DrinkApiCaller();
 			String resp = "";
@@ -67,10 +68,10 @@ public class DrinkController {
 			System.out.println(resultList);
 			
 		//User's pantry will go here
-			Long sessionId = (Long) session.getAttribute("loggedUser");
-			User thisUser = userService.findUserById(sessionId);
-			List<String> pantry=userService.getListIngredient(thisUser);
-			viewModel.addAttribute("pantry", pantry);
+//			Long sessionId = (Long) session.getAttribute("loggedUser");
+//			User thisUser = userService.findUserById(sessionId);
+//			List<String> pantry=userService.getListIngredient(thisUser);
+//			viewModel.addAttribute("pantry", pantry);
 			
 			viewModel.addAttribute("drinkList", resultList);
 			for(Drink drink : resultList) {

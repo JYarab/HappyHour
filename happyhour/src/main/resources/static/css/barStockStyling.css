@@ -1,24 +1,174 @@
-@charset "ISO-8859-1";
-
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    font-family: 'poppins',sans-serif;
+/*     background-color: #495057; */
+	background:url("/image/pantry.jpg") no-repeat center center fixed;
+	background-size:cover;
+	overflow-y: hidden;
+	background-color:red;
 }
 
-.active, .collapsible:hover {
-  background-color: #555;
+
+
+
+
+.modal-info{
+	max-height:400px;
 }
 
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
+.container-fluid {
+	width: 100%;
+	min-height: 50px;
+}
+
+.navbar {
+
+	position: fixed;
+	top: 0;
+  	width: 100%;
+}
+
+#searchInput {
+	margin-right:0;
+	border-top-left-radius:50rem;
+	border-bottom-left-radius:50rem;
+    background: #2f3640;
+    padding: 5px; 
+    min-width: 200px;
+	max-width: 20%;
+    height: 40px;
+    text-align: center;    
+}
+
+#searchType{
+	
+	margin-left:0;
+	border-top-right-radius:50rem;
+	border-bottom-right-radius:50rem;
+	background: #2f3640;
+    padding: 5px;
+    min-width: 100px;
+	max-width: 10%;
+    height: 40px;
+    text-align: center;
+    color:#8d99a5;
+    border-width: 0px 1px 1px 0px;
+    border-color: #8d99a5;
+}
+
+
+.search-container {
+	display:inline-block;
+}
+
+.content, .content-reg {
+    margin:8%;
+    background-color: #fff;
+    padding: 4rem 1rem 4rem 1rem;
+    box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+}
+.content-reg{
+    padding: 4rem 1rem 4rem 10rem;
+}
+.signin-text{
+    font-style: normal;
+    font-weight: 600 !important;
+    text-align: center;
+}
+.signin-text-reg{
+    font-style: normal;
+    font-weight: 600 !important;
+    text-align: center;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    font-size:1rem;
+    font-weight: 400;
+    font: height 1.5em;
+    border-color: #a1a09d !important;
+    border-style: solid !important;
+    border-width: 0px 1px 1px 0px;
+    padding: 0px !important;
+    margin-bottom: 8px;
+    color: #8d99a5;
+    height: auto;
+    border-radius: 0;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+.form-control:focus{
+    color: black;
+    background-color: #fff;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: none;
+}
+.btn-class{
+    margin-top: 6px;
+    border-color: #068dc7;
+    color: #fff;
+    background-color: #495057
+}
+.btn-class:hover{
+    background-color: black;
+    color: #fff;
+}
+.btn-reg{
+    align-items: center;
+}
+nav{
+	margin-top:6px;
+	
+}
+h1{
+	text-align:center;
+	margin-top:8%;
+	color:#fff;
+}
+
+.search-container{
+	width:100%;
+}
+.row{
+	margin-top:4%;
+}
+
+
+
+.drinkSearch {
+	margin-bottom:10%;
+	margin-left:50%;
+	transform:translate(-50%,-50%);
+	background:#2f3640;
+	height:40px;
+	border-radius:40px;
+	padding:5px;
+	min-width: 200px;
+	max-width: 20%;
+	text-align: center;
+}
+
+
+.search-text{
+	text-align: center;
+	width: 100%;
+	border:none;
+	background:none;
+	color:white;
+	outline:none;
+	float:left;
+	transition:0.4s;
+	line-height: 25px;
+}
+
+.fas{
+	color:black;
+	position:absolute;
+	margin-top: 1.75%;
+    margin-left:60.5%;
+}
+
+.card-body {
+	min-height: 190px;
 }

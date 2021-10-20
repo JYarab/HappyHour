@@ -33,7 +33,7 @@
   background-color: #f1f1f1;
 }
 </style>
-<link rel="stylesheet" type="text/css" href="css/barStockStyling.css">
+<link rel="stylesheet" type="text/css" href="/css/barStockStyling.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"crossorigin="anonymous">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -45,11 +45,53 @@
   } );
   </script>
 <meta charset="ISO-8859-1">
-<title>${user.firstName}'s Bar</title>
+<title>${loggedUser.firstName}'s Bar</title>
 </head>
 <body>
+<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/happyhour">Home</a>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							
+							
+							
+						</li>		
+					</ul>
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#">Favorites</a>
+						</li>	
+					</ul>
+				</div>
+				<c:choose>
+				<c:when test="${loggedUser.id != null}">
+					<a class="navbar-brand" href="/logout"> Logout </a>
+				</c:when>
+				<c:otherwise>
+					<a class="navbar-brand" href="/login"> Login </a>
+				</c:otherwise>
+				</c:choose>
+			</div>
+		</nav>
+	</div>
+	
+	
+	
+${suggestions.size()} possibilities:
+<button type="button" class="collapsible"><h3>Suggestions</h3></button>
+<div class="content1">
+<c:forEach items="${suggestions}" var="suggestion">
+    ${suggestion}<br>
+</c:forEach>
+</div>
+    
+
+
+
 	<div class="container">
-	<a href="/happyhour">Back</a>
 	<h4>There are ${fn:length(allDrinks)} Drinks in the Database.</h4>
 <!-- Search Results Go Here -->		
 	<div class="container">
@@ -65,12 +107,7 @@
 		</div>
         <input type="submit" value="Add"/>
     </form>
-    <h4>Here's some suggestions!</h4>
-    ${suggestions.size()} possibilities:
-    <button type="button" class="collapsible"><h3>Show me</h3></button>
-	<div class="content1">
-    	${suggestions}
-    	</div>
+    
     <h4>Here's what you can make now!</h4>
 		<div class="row g-3">
 			<c:forEach items="${allDrinks}" var="drink">	

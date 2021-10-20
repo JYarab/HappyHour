@@ -75,7 +75,7 @@ public class BarStockController {
 		viewModel.addAttribute("pantry", pantry);
 //		System.out.println("pantry: "+pantry);
 		viewModel.addAttribute("allDrinks", session.getAttribute("allDrinks"));
-		viewModel.addAttribute("user", uService.findUserById((Long) session.getAttribute("loggedUser")));
+		viewModel.addAttribute("loggedUser", uService.findUserById((Long) session.getAttribute("loggedUser")));
 		//analyze user's current barStock/pantry and generate list of smart suggestions from allDrinks based on easily attainable ingredients the user may not have listed.
 		List<String> suggestions = iService.superSmartSuggestionator(allDrinks, pantry);
 		viewModel.addAttribute("suggestions", suggestions);
