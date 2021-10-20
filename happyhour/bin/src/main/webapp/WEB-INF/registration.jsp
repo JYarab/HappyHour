@@ -6,43 +6,53 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="/css/styleRegistration.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Registration</title>
 </head>
-<body>
+<body class="reg-bg">
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="/images/alienPeace.png" id="icon" alt="User Icon" />
-    </div>
     
-    <div class="error_messages">
-	<h3 class="text-success">${message}</h3>
-    <p><form:errors path="user.*"/></p>
-    <p><c:out value="${error}" /></p>
-	</div>
 
-    <!-- Registration Form -->
-    <form:form method="post" action="/registration" modelAttribute="user">
-    	<form:input type="text" id="lastName" class="fadeIn second" name="firstName" placeholder="first name" path="firstName"/>
-    	<form:input type="text" id="firstName" class="fadeIn second" name="lastName" placeholder="last name" path="lastName"/>
-    	<form:input type="text" id="email" class="fadeIn second" name="email" placeholder="email" path="email"/>
-    	<form:input type="password" id="password" class="fadeIn third" name="password" placeholder="password" path="password"/>
-    	<form:input type="password" id="password" class="fadeIn third" name="password" placeholder="confirm password" path="pwConfirmation"/>
-    	<input type="submit" class="fadeIn fourth" value="Register">
+	<div class="card reg-box">
+		<form:form method="post" action="/registration" modelAttribute="user">
+			<div class="text-box mb-3">
+				<form:input type="text" id="lastName" class="form-group" name="firstName" placeholder="first name" path="firstName"/>
+			</div>
+	    	
+	    	<div class="text-box mb-3"">
+	    		<form:input type="text" id="firstName" class="form-group" name="lastName" placeholder="last name" path="lastName"/>
+	    	</div>
+	    	
+	    	<div class="text-box mb-3"">
+	    		<form:input type="text" id="email" class="form-group" name="email" placeholder="email" path="email"/>
+	    	</div>
+	    	
+	    	<div class="text-box mb-3"">
+	    		<form:input type="password" id="password" class="form-group" name="password" placeholder="password" path="password"/>
+	    	</div>
+	    	<div class="text-box mb-3"">
+	    		<form:input type="password" id="password" class="fadeIn third" name="password" placeholder="confirm password" path="pwConfirmation"/>
+	    	</div>	
+    	<input type="submit" class="btn btn-primary" value="Register">
     </form:form>
-
-    <!-- back to login -->
-    <div id="formFooter">
+     <div id="formFooter">
       <a class="underlineHover" href="/login">login</a>
     </div>
+    <p><form:errors path="user.*"/></p>
+	</div>
+    <!-- Registration Form -->
+
+
+    <!-- back to login -->
+
   </div>
 </div>
 

@@ -115,13 +115,17 @@
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
 
-						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
+						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
 					    <div class="card-body">
-						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+						    <h5 class="card-title">${drink.name}</h5>
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
+							
 							<p class="card-text"><small class="text-muted">
+
+							
+							
 								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
 									<button type="button" class="btn btn-link p-0 m-0 d-inline align-baseline" 
 										<c:choose>
@@ -139,12 +143,16 @@
 							</p>
 							<button type="button" class="collapsible">Show me</button>
 							<div class="content1">
-    							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    							ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-    							ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-    							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    							non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    							<h3>Measurements</h3>
+								<c:forEach items="${drink.getIngredMeasure()}" var="both">
+								<c:out value="${both}"/>
+								</c:forEach>
+								<h3>Instruction</h3>
+    							<p>${drink.instructions}</p>
+								
+								
+    							
     						</div>
 						</div>
 					</div>							
