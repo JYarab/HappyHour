@@ -640,8 +640,7 @@ public class Drink {
 	    name = "user_favorite", 
 	    joinColumns = @JoinColumn(name = "drink_id"), 
 	    inverseJoinColumns = @JoinColumn(name = "user_id")
-	
-			)
+	)
 	
 
 	

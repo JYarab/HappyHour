@@ -37,6 +37,7 @@
   overflow: hidden;
   background-color: #f1f1f1;
 }
+
 </style>
 <meta charset="ISO-8859-1">
 <title>Happy Hour Welcome Page</title>
@@ -118,6 +119,7 @@
 						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
 					    <div class="card-body">
 					     <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+					     <a href="/drink/addFav/${drink.apiId}"><img src="/image/heart.png" alt="favorite" width="18" height="20"></a>
 						   <%--  <h5 class="card-title">${drink.name}</h5>
 						    <a href="/drinks/${drink.apiId}"></a> --%>
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">

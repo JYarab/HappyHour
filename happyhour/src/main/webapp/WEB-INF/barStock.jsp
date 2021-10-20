@@ -33,6 +33,8 @@
   background-color: #f1f1f1;
 }
 </style>
+<meta charset="ISO-8859-1">
+<title>${loggedUser.firstName}'s Bar</title>
 <link rel="stylesheet" type="text/css" href="/css/barStockStyling.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"crossorigin="anonymous">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -59,7 +61,6 @@
 						</li>	
 					</ul>
 				</div>
-
 
 
 				<c:choose>
@@ -155,6 +156,15 @@
 								</c:forEach>
 								</small>
 							</p>
+							<button type="button" class="collapsible" style="width: 30%;">Show me</button>
+							<div class="content5">
+    							<h3>Measurements</h3>
+									<c:forEach items="${drink.getIngredMeasure()}" var="both">
+										<c:out value="${both}"/>
+									</c:forEach>
+								<h3>Instruction</h3>
+    							<p>${drink.instructions}</p>
+    						</div>
 						</div>
 					</div>							
 				</div>
@@ -163,8 +173,7 @@
 		</div>
 		
 	</div>	
-	
-	</div>
+
 	
 	<script>
 var coll = document.getElementsByClassName("collapsible");
