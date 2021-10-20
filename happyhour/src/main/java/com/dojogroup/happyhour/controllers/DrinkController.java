@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.dojogroup.happyhour.models.Drink;
 import com.dojogroup.happyhour.models.User;
+import com.dojogroup.happyhour.services.DrinkService;
 import com.dojogroup.happyhour.services.UserService;
 import com.dojogroup.happyhour.utilities.DrinkApiCaller;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,6 +34,7 @@ public class DrinkController {
 	RestTemplate restTemplate;
 	
 	@Autowired UserService userService;
+	@Autowired DrinkService drinkService;
 	
 
 	
@@ -121,4 +123,25 @@ public class DrinkController {
     }
 
 	
+	@GetMapping(value="/drinks/addFav/{Id}")
+	public String addFav (@PathVariable("Id") String apiId, Model viewModel, HttpSession session) throws JsonMappingException, JsonProcessingException {
+		RestTemplate restTemplate = new RestTemplate();	
+		DrinkApiCaller apiCaller = new DrinkApiCaller();
+		
+		String resp = restTemplate.getForObject(apiCaller.lookupDrinkById(apiId), String.class);
+		final ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		final JsonNode jsonNode = objectMapper.readTree(resp);
+		final JsonNode result = jsonNode.get("drinks");
+		final Drink [] thisDrink = objectMapper.treeToValue(result, Drink [].class);
+		viewModel.addAttribute("drink",thisDrink[0]);
+		
+		
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userService.findUserById(userId);
+		Drink drink = drinkService.getOneDrink(apiId);
+		drinkService.addFavDrink(drink, user);
+		System.out.println("1111");
+		return "redirect:/drinks/{apiId}";
+			
+}
 }

@@ -37,6 +37,7 @@
   overflow: hidden;
   background-color: #f1f1f1;
 }
+
 </style>
 <meta charset="ISO-8859-1">
 <title>Happy Hour Welcome Page</title>
@@ -109,7 +110,7 @@
 		
 <!-- Search Results Go Here -->		
 	<div class="container">
-		<h4>${fn:length(drinkList)} Results</h4>
+		<h4 style="color: white; font-weight: bold;">${fn:length(drinkList)} Results</h4>
 		<div class="row g-3" style="height: 70vh;overflow-y: scroll;">
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
@@ -117,7 +118,10 @@
 
 						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
 					    <div class="card-body">
-						    <h5 class="card-title">${drink.name}</h5>
+					     <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+					     <a href="/drink/addFav/${drink.apiId}"><img src="/image/heart.png" alt="favorite" width="18" height="20"></a>
+						   <%--  <h5 class="card-title">${drink.name}</h5>
+						    <a href="/drinks/${drink.apiId}"></a> --%>
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
