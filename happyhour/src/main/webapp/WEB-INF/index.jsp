@@ -69,7 +69,7 @@
 					</ul>
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/luckyDrink"> Browse Drinks</a>
+							aria-current="page" href="/luckyDrink">Roll the Dice</a>
 						</li>	
 					</ul>
 				</div>
@@ -109,7 +109,7 @@
 		
 <!-- Search Results Go Here -->		
 	<div class="container">
-		<h4>${fn:length(drinkList)} Results</h4>
+		<h4 style="color: white; font-weight: bold;">${fn:length(drinkList)} Results</h4>
 		<div class="row g-3" style="height: 70vh;overflow-y: scroll;">
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
@@ -121,11 +121,8 @@
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
-							
-							<p class="card-text"><small class="text-muted">
 
-							
-							
+							<p class="card-text"><small class="text-muted">
 								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
 									<button type="button" class="btn btn-link p-0 m-0 d-inline align-baseline" 
 										<c:choose>
@@ -145,14 +142,11 @@
 							<div class="content1">
 
     							<h3>Measurements</h3>
-								<c:forEach items="${drink.getIngredMeasure()}" var="both">
-								<c:out value="${both}"/>
-								</c:forEach>
+									<c:forEach items="${drink.getIngredMeasure()}" var="both">
+										<c:out value="${both}"/>
+									</c:forEach>
 								<h3>Instruction</h3>
     							<p>${drink.instructions}</p>
-								
-								
-    							
     						</div>
 						</div>
 					</div>							
