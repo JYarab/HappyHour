@@ -122,7 +122,7 @@ public class DrinkController {
 		return "luckyShot.jsp";
 	}
 	
-	@GetMapping(value="/drinks/fav/{Id}")
+	@GetMapping(value="/drinks/addFav/{Id}")
 	public String addFav (@PathVariable("Id") String apiId, Model viewModel, HttpSession session) throws JsonMappingException, JsonProcessingException {
 		RestTemplate restTemplate = new RestTemplate();	
 		DrinkApiCaller apiCaller = new DrinkApiCaller();
@@ -139,8 +139,8 @@ public class DrinkController {
 		User user = userService.findUserById(userId);
 		Drink drink = drinkService.getOneDrink(apiId);
 		drinkService.addFavDrink(drink, user);
-		
-		return "redirect:/drinks/{id}";
+		System.out.println("1111");
+		return "redirect:/drinks/{apiId}";
 			
 }
 }

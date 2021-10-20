@@ -117,7 +117,9 @@
 
 						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
 					    <div class="card-body">
-						    <h5 class="card-title">${drink.name}</h5>
+					     <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+						   <%--  <h5 class="card-title">${drink.name}</h5>
+						    <a href="/drinks/${drink.apiId}"></a> --%>
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
