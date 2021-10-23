@@ -21,7 +21,7 @@
     <!-- Tabs Titles -->
 
     <!-- HH Logo -->
-    <div style="text-align: center; margin-top: 10%;">
+    <div style="text-align: center; margin-top: 8%;">
     <img src="/image/hh.png" alt="Happy Hour" width="200" height="200">
 	</div>
 	

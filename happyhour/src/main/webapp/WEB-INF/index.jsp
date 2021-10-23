@@ -87,7 +87,6 @@
 	</div>
 	
 	<div class="container">
-	
 		<div class="row justify-content-center">
 		<h1>What's on Hand</h1>
 			<div class="col-12 col-md-8 col-lg-6">
@@ -99,7 +98,7 @@
 				    <option value="ingredient">Ingredient</option>
 				    <option value="3">Three</option>
 				  </select>
-				</div>				
+				</div>
 				<div class="text-center">
 					<button class="btn btn-secondary">Search</button>
 				</div>
