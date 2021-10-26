@@ -19,9 +19,12 @@
     <!-- Tabs Titles -->
 
     <!-- Icon -->
-    
+    <!-- HH Logo -->
+    <div style="text-align: center; margin-top: 3%;">
+    <img src="/image/logo1.png" alt="Happy Hour" width="200" height="200">
+	</div>
 
-	<div class="card reg-box">
+	<div class="card reg-box mt-4">
 		<form:form method="post" action="/registration" modelAttribute="user">
 			<div class="text-box mb-3">
 				<form:input type="text" id="lastName" class="form-group" name="firstName" placeholder="first name" path="firstName"/>
