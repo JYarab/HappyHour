@@ -37,6 +37,7 @@
   overflow: hidden;
   background-color: #f1f1f1;
 }
+
 </style>
 <meta charset="ISO-8859-1">
 <title>Happy Hour Welcome Page</title>
@@ -69,7 +70,7 @@
 					</ul>
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/luckyDrink"> Browse Drinks</a>
+							aria-current="page" href="/luckyDrink">Roll the Dice</a>
 						</li>	
 					</ul>
 				</div>
@@ -86,7 +87,6 @@
 	</div>
 	
 	<div class="container">
-	
 		<div class="row justify-content-center">
 		<h1>What's on Hand</h1>
 			<div class="col-12 col-md-8 col-lg-6">
@@ -98,7 +98,7 @@
 				    <option value="ingredient">Ingredient</option>
 				    <option value="3">Three</option>
 				  </select>
-				</div>				
+				</div>
 				<div class="text-center">
 					<button class="btn btn-secondary">Search</button>
 				</div>
@@ -109,18 +109,22 @@
 		
 <!-- Search Results Go Here -->		
 	<div class="container">
-		<h4>${fn:length(drinkList)} Results</h4>
+		<h4 style="color: white; font-weight: bold;">${fn:length(drinkList)} Results</h4>
 		<div class="row g-3" style="height: 70vh;overflow-y: scroll;">
 			<c:forEach items="${drinkList}" var="drink">				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card">
 
-						<a href="/drinks/${drink.apiId}"><img src="${drink.imgThumb}" class="card-img-top" alt="" /></a>
+						<img src="${drink.imgThumb}" class="card-img-top" alt="" />
 					    <div class="card-body">
-						    <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+					     <h5 class="card-title"><a href="/drinks/${drink.apiId}">${drink.name}</a></h5>
+					     <a href="/drink/addFav/${drink.apiId}"><img src="/image/heart.png" alt="favorite" width="18" height="20"></a>
+						   <%--  <h5 class="card-title">${drink.name}</h5>
+						    <a href="/drinks/${drink.apiId}"></a> --%>
 						    <c:if test="${pantry.containsAll(drink.getIngredientList())}">
 								<p class="card-text" style="color: green; font-size: 20px;">You can make this drink!</p>
 							</c:if>
+
 							<p class="card-text"><small class="text-muted">
 								<c:forEach items="${drink.getIngredientList()}" var="ingredient">
 									<button type="button" class="btn btn-link p-0 m-0 d-inline align-baseline" 
@@ -139,12 +143,13 @@
 							</p>
 							<button type="button" class="collapsible">Show me</button>
 							<div class="content1">
-    							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    							ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-    							ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-    							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    							non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    							<h3>Measurements</h3>
+									<c:forEach items="${drink.getIngredMeasure()}" var="both">
+										<c:out value="${both}"/>
+									</c:forEach>
+								<h3>Instruction</h3>
+    							<p>${drink.instructions}</p>
     						</div>
 						</div>
 					</div>							
